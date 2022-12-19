@@ -1,0 +1,124 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 1fr 10fr;
+  font-family: Roboto, sans-serif;
+}
+.navbar {
+  text-align: center;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
+  padding: 10px;
+}
+.library {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 300px);
+  grid-auto-rows: 250px;
+  gap: 20px;
+}
+.book {
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  border: none;
+  border-radius: 10px;
+}
+.btn,
+.remove {
+  width: 90%;
+  height: 30px;
+  border: none;
+  border-radius: 10px;
+  background-color: rgba(255, 0, 0, 0.7);
+  color: white;
+}
+.read {
+  background-color: rgba(0, 128, 0, 0.7);
+}
+button:hover {
+  filter: brightness(0.9);
+}
+button:active {
+  filter: brightness(0.7);
+}
+.add {
+  width: 300px;
+  background-color: rgba(0, 0, 255, 0.5);
+  height: 30px;
+  border: none;
+  border-radius: 10px;
+  color: white;
+}
+input {
+  width: 300px;
+  height: 50px;
+  padding: 20px;
+  outline: none;
+  border: none;
+  border-radius: 2px;
+  box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.2);
+}
+input:focus {
+  box-shadow: 0px 2px 1px 0px rgba(0, 0, 255, 0.3);
+}
+input[type="button"] {
+  background-color: rgba(0, 128, 0, 0.7);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  box-shadow: none;
+}
+input[value="read"] {
+  background-color: rgba(0, 128, 0, 0.7);
+}
+input[value="not read"] {
+  background-color: rgba(255, 0, 0, 0.7);
+}
+input[type="button"]:hover {
+  filter: brightness(0.9);
+}
+input[type="button"]:active {
+  filter: brightness(0.7);
+}
+input[value="submit"] {
+  background-color: rgba(0, 0, 255, 0.5);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  box-shadow: none;
+}
+input[type="submit"]:hover {
+  filter: brightness(0.9);
+}
+input[type="submit"]:active {
+  filter: brightness(0.7);
+}
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.form {
+  width: 350px;
+  height: 400px;
+  background-color: rgb(245, 242, 243);
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: calc(50% - 300px);
+  left: calc(50% - 180px);
+  scale: 0;
+  transition: 0.2s;
+}
