@@ -30,10 +30,14 @@ function addBookToLibrary(bookToAdd) {
 }
 
 function Display() {
+  let status;
   for (let i = 0; i < myLibrary.length; i += 1) {
     const div = document.createElement("div");
     div.classList = "book";
-    div.innerHTML = `<h2>${myLibrary[i].title}</h2><h3>by ${myLibrary[i].author}</h3><p>${myLibrary[i].pages} pages</p><button onclick="readnotread(this)" data-=${i} class="read btn">${myLibrary[i].read}</button><button class="remove" onclick="removebook(this)" data-=${i}>remove</button>`;
+    if (myLibrary[i].read==='read') 
+    status='read ';
+    else status='';
+      div.innerHTML = `<h2>${myLibrary[i].title}</h2><h3>by ${myLibrary[i].author}</h3><p>${myLibrary[i].pages} pages</p><button onclick="readnotread(this)" data-=${i} class="${status}btn">${myLibrary[i].read}</button><button class="remove" onclick="removebook(this)" data-=${i}>remove</button>`;
     Library.appendChild(div);
   }
 }
@@ -88,6 +92,7 @@ function readnotread(e) {
     e.classList.add("read");
     e.textContent = "read";
   }
+  
 }
 
 addBook();
