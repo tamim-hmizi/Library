@@ -5,24 +5,25 @@ const showform = document.querySelector(".form");
 const form = document.querySelector("form");
 const btnreadornot = document.querySelector("input[name='read']");
 
-function Book(title, author, pages, read) {
-  // the constructor...
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
-}
+class Book {
+  constructor(title, author, pages, read) {
+    // the constructor...
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
+  }
 
-Book.prototype = {
   info() {
     return `The ${this.title} by ${this.author}, ${this.pages} pages, ${this.read}`;
-  },
+  }
+
   toggleread() {
     if (this.read === "not read") this.read = "read";
     else this.read = "not read";
     return this.read;
-  },
-};
+  }
+}
 
 function addBookToLibrary(bookToAdd) {
   // do stuff here
@@ -34,10 +35,9 @@ function Display() {
   for (let i = 0; i < myLibrary.length; i += 1) {
     const div = document.createElement("div");
     div.classList = "book";
-    if (myLibrary[i].read==='read') 
-    status='read ';
-    else status='';
-      div.innerHTML = `<h2>${myLibrary[i].title}</h2><h3>by ${myLibrary[i].author}</h3><p>${myLibrary[i].pages} pages</p><button onclick="readnotread(this)" data-=${i} class="${status}btn">${myLibrary[i].read}</button><button class="remove" onclick="removebook(this)" data-=${i}>remove</button>`;
+    if (myLibrary[i].read === "read") status = "read ";
+    else status = "";
+    div.innerHTML = `<h2>${myLibrary[i].title}</h2><h3>by ${myLibrary[i].author}</h3><p>${myLibrary[i].pages} pages</p><button onclick="readnotread(this)" data-=${i} class="${status}btn">${myLibrary[i].read}</button><button class="remove" onclick="removebook(this)" data-=${i}>remove</button>`;
     Library.appendChild(div);
   }
 }
@@ -87,12 +87,11 @@ function readnotread(e) {
   const status = myLibrary[e.getAttribute("data-")].toggleread();
   if (status === "not read") {
     e.classList.remove("read");
-    e.textContent='not read';
-  }else{
+    e.textContent = "not read";
+  } else {
     e.classList.add("read");
     e.textContent = "read";
   }
-  
 }
 
 addBook();
