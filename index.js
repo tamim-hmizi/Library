@@ -7,7 +7,6 @@ const btnreadornot = document.querySelector("input[name='read']");
 
 class Book {
   constructor(title, author, pages, read) {
-    // the constructor...
     this.title = title;
     this.author = author;
     this.pages = pages;
@@ -26,7 +25,6 @@ class Book {
 }
 
 function addBookToLibrary(bookToAdd) {
-  // do stuff here
   myLibrary.push(bookToAdd);
 }
 
